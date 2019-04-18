@@ -7,9 +7,9 @@ const initialState = Immutable.fromJS({
   loading: false,
   fetching: false,
   cities:[
-    {name: 'Stockholm,se'},
-    {name: 'Bengaluru,in'},
-    {name: 'Nairobi,ke'}
+    {name: "Stockholm,se"},
+    {name: "Bengaluru,in"},
+    {name: "Nairobi,ke"}
   ],
   citiesWeather: [],
   error: {}
@@ -22,10 +22,8 @@ export default (state = initialState, action) => {
       return state.set('fetching', true)
     case FETCH_WEATHER_SUCCESS:
       //Update the array containing the weather information, we are no longer fetching.
-      let citiesWeather = state.get('citiesWeather')
-      citiesWeather.push(action.payload)
       return state
-        .set('citiesWeather', citiesWeather)
+        .set('citiesWeather', [...state.get('citiesWeather'), action.payload])
         .set('fetching', false)
     case FETCH_WEATHER_ERROR:
       //Update the error object to feedback the user about the error, we are no longer fetching.

@@ -26,21 +26,18 @@ export const fetchWeatherFromCity = (name) => {
      * @param q string <city_name>,<country_code> Example: "Stockholm,se"
      * @param APPID string API key.
      */
-    const params = {
-      q: name,
-      APPID: constants.api.key
-    }
+    const params = '?q=' + name + '&' + 'APPID=' + constants.api.key
 
     //prepare GET http request, we generate a Promise instead of using await.
     axios
-      .get(constants.urls.weather, params)
+      .get(constants.urls.weather + params)
       .then(({data: weather}) => {
         //I deconstruct the result -> data and rename to weather for better readability.
         //process the response from the API, verify the response is 200
-        if (weather !== null && weather.code === 200){
+        if (weather !== null && weather.cod === 200){
           //Asynchronously send the returned weather information to reducer.
           dispatch(fetchWeatherSuccess(weather))
-        }
+        } else dispatch(fetchWeatherError(new Error('Failed to retrieve')))
       })
       .catch((error) => {
         //We show the error in console for rapid evaluation.
@@ -63,13 +60,13 @@ function fetchWeatherLoading (){
 
 /**
  * Return the information returned by the http request to the weather API if successful.
- * @param weatherInfo
- * @returns {{type: string, payload: *}}
+ * @param weather Object returned by API
+ * @returns {{type: string, payload: Object}}
  */
-function fetchWeatherSuccess (weatherInfo) {
+function fetchWeatherSuccess (weather) {
   return {
     type: FETCH_WEATHER_SUCCESS,
-    payload: weatherInfo
+    payload: weather
   }
 }
 
