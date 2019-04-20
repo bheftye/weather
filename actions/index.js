@@ -9,6 +9,7 @@ import constants from '../constants/index'
 export const FETCH_WEATHER_SUCCESS = 'fetch_weather_success'
 export const FETCH_WEATHER_LOADING = 'fetch_weather_loading'
 export const FETCH_WEATHER_ERROR = 'fetch_weather_error'
+export const SET_CURRENT_CITY = 'set_current_city'
 
 /**
  * Retrieves the weather information from API.
@@ -80,5 +81,17 @@ function fetchWeatherError (error){
   return {
     type: FETCH_WEATHER_ERROR,
     payload: error
+  }
+}
+
+/**
+ * Sets the current function
+ * @param city Weather object corresponding to the city the user pressed on.
+ * @returns {{type: string, payload: *}}
+ */
+export const setCurrentCity = (city) => {
+  return {
+    type: SET_CURRENT_CITY,
+    payload: city
   }
 }

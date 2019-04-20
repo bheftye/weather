@@ -12,7 +12,13 @@ class Map extends Component {
           initialRegion={{
             latitude: latitude,
             longitude: longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
           }}
+          zoomEnabled={false}
+          zoomTapEnabled={false}
+          zoomControlEnabled={false}
+          scrollEnabled={false}
         />)
     }
     return (

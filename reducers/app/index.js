@@ -1,6 +1,7 @@
 import Immutable from 'immutable'
 import {
-  FETCH_WEATHER_LOADING, FETCH_WEATHER_SUCCESS, FETCH_WEATHER_ERROR}
+  FETCH_WEATHER_LOADING, FETCH_WEATHER_SUCCESS, FETCH_WEATHER_ERROR,
+  SET_CURRENT_CITY}
   from '../../actions/index'
 
 const initialState = Immutable.fromJS({
@@ -12,6 +13,7 @@ const initialState = Immutable.fromJS({
     {name: "Nairobi,ke"}
   ],
   citiesWeather: [],
+  currentCity: null,
   error: {}
 })
 
@@ -30,6 +32,8 @@ export default (state = initialState, action) => {
       return state
         .set('error', action.payload)
         .set('fetching', false)
+    case SET_CURRENT_CITY:
+      return state.set('currentCity', action.payload)
     default:
       return state
   }

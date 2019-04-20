@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import {View, FlatList, ScrollView, StyleSheet} from 'react-native'
-import {fetchWeatherFromCity} from '../actions'
+import {fetchWeatherFromCity, setCurrentCity} from '../actions'
 import WeatherItem from '../components/WeatherItem'
 
 class CitiesScreen extends Component {
@@ -21,12 +21,18 @@ class CitiesScreen extends Component {
     return (
       <WeatherItem
         item={item}
+        onPress={this._onPress}
       />
     );
   }
 
   _keyExtractor = (item, index) => {
     return item.id + ''
+  }
+
+  _onPress = (item) => {
+    this.props.setCurrentCity(item)
+    this.props.navigation.navigate('Detail')
   }
 
 
@@ -54,6 +60,7 @@ const mapStateToProps = (state) => ({
 
 const bindActions = (dispatch) => ({
   fetchWeatherFromCity: (name) => {dispatch(fetchWeatherFromCity(name))},
+  setCurrentCity: (city) => {dispatch(setCurrentCity(city))}
 })
 
 const styles = StyleSheet.create({
