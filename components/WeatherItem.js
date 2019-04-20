@@ -5,12 +5,11 @@ import Map from './Map'
 class WeatherItem extends Component{
   render () {
     const {item} = this.props
-    const tempCelcius = Math.round(item.main.temp - 273.15)
     return (
       <View styles={{flex:1}}>
-        <TouchableOpacity style={styles.container} onPress={(item) => this.props.onPress(item)}>
+        <TouchableOpacity style={styles.container} onPress={() => this.props.onPress(item)}>
           <Text style={styles.text}>{item.name}</Text>
-          <Text style={styles.temp}>{tempCelcius}° </Text>
+          <Text style={styles.temp}>{Math.round(item.main.temp)}° </Text>
         </TouchableOpacity>
         <View style={styles.mapCont}>
           <Map longitude={item.coord.lon} latitude={item.coord.lat} />

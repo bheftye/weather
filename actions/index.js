@@ -27,7 +27,7 @@ export const fetchWeatherFromCity = (name) => {
      * @param q string <city_name>,<country_code> Example: "Stockholm,se"
      * @param APPID string API key.
      */
-    const params = '?q=' + name + '&' + 'APPID=' + constants.api.key
+    const params = '?q=' + name + '&units=metric&' + 'APPID=' + constants.api.key
 
     //prepare GET http request, we generate a Promise instead of using await.
     axios
