@@ -10,6 +10,9 @@ export const FETCH_WEATHER_SUCCESS = 'fetch_weather_success'
 export const FETCH_WEATHER_LOADING = 'fetch_weather_loading'
 export const FETCH_WEATHER_ERROR = 'fetch_weather_error'
 export const SET_CURRENT_CITY = 'set_current_city'
+export const FETCH_FUTURE_FORECAST_SUCCESS = 'fetch_future_forecast_success'
+export const FETCH_FUTURE_FORECAST_LOADING = 'fetch_future_forecast_loading'
+export const FETCH_FUTURE_FORECAST_ERROR = 'fetch_future_forecast_error'
 
 /**
  * Retrieves the weather information from API.
@@ -93,5 +96,78 @@ export const setCurrentCity = (city) => {
   return {
     type: SET_CURRENT_CITY,
     payload: city
+  }
+}
+
+/**
+ * From cityId retrieved we can retrieve the forecast for the next days.
+ * @param cityId
+ * @returns {Function}
+ */
+export const fetchFutureForecast = (cityId) => {
+  return (dispatch) => {
+    //asynchronously set the loading state.
+    dispatch(fetchFutureForecastLoading())
+
+    /**
+     * GET Parameters required according to documentation.
+     * @param d string <city_id> Example: "2673730"
+     * @param cnt int Number of days to forecast
+     * @param units string Temperature system, Celicius in our case.
+     * @param APPID string API key.
+     */
+    const params = '?id=' + cityId + '&cnt=5&units=metric&' + 'APPID=' + constants.api.key
+
+    //prepare GET http request, we generate a Promise instead of using await.
+    axios
+      .get(constants.urls.forecast + params)
+      .then(({data: forecast}) => {
+        //I deconstruct the result -> data and rename to weather for better readability.
+        //process the response from the API
+        if (forecast !== null){
+          //Asynchronously send the returned weather information to reducer.
+          dispatch(fetchFutureForecastSuccess(forecast.list))
+        } else dispatch(fetchFutureForecastError(new Error('Failed to retrieve')))
+      })
+      .catch((error) => {
+        //We show the error in console for rapid evaluation.
+        console.log(error)
+        //Asynchronously send the error to state.
+        dispatch(fetchFutureForecastError(error))
+      })
+  }
+}
+
+/**
+ * Set the state to loading to provide feedback to UI.
+ * @returns {{type: string}}
+ */
+function fetchFutureForecastLoading () {
+  return {
+    type: FETCH_FUTURE_FORECAST_LOADING
+  }
+}
+
+/**
+ * Give the reducer the data received from http request.
+ * @param forecast
+ * @returns {{type: string, payload: *}}
+ */
+function fetchFutureForecastSuccess (forecast) {
+  return {
+    type: FETCH_FUTURE_FORECAST_SUCCESS,
+    payload: forecast
+  }
+}
+
+/**
+ * Give the reducer error data to provide feedback to UI.
+ * @param error
+ * @returns {{type: string, payload: *}}
+ */
+function fetchFutureForecastError (error) {
+  return {
+    type: FETCH_FUTURE_FORECAST_ERROR,
+    payload: error
   }
 }
