@@ -64,7 +64,7 @@ const bindActions = (dispatch) => ({
 })
 
 const styles = StyleSheet.create({
-  container: {flex:1}
+  container: {flex:1, backgroundColor: '#36C3FF'}
 })
 
 export default connect(mapStateToProps, bindActions)(CitiesScreen)
