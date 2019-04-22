@@ -14,6 +14,13 @@ bigger map of the city which can be navigated for further details.
 
 The entire system has only two components that interact: the mobile application and [OpenWeatherMap API](https://openweathermap.org).
 
+## Architecture
+The architecture of the system is pretty simple to understand. It is constructed of two high-level components.
+The system is built thinking of the client-server architecture.
+Therefore, I chose technologies that are developed for this purpose.
+
+![Imgur](https://i.imgur.com/lNVsHoZ.png)
+
 ## Technology Choice
 Fast development was crucial for this project, thus I decided to go for the technologies that I use the most. Expo had
 exactly what I needed regarding pre-installed libraries and components.
