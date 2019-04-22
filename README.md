@@ -19,7 +19,7 @@ The architecture of the system is pretty simple to understand. It is constructed
 The system is built thinking of the client-server architecture.
 Therefore, I chose technologies that are developed for this purpose.
 
-![Imgur](https://i.imgur.com/lNVsHoZ.png)
+![Architecture](https://i.imgur.com/Q9diCKI.png)
 
 ## Technology Choice
 Fast development was crucial for this project, thus I decided to go for the technologies that I use the most. Expo had
