@@ -40,3 +40,25 @@ This technology is developed by Facebook and used by big companies like Uber, Te
 ### [Redux](https://redux.js.org)
 Redux is a great tool to handle global state in a React-Native application. It has great documentation and is well supported
 and recommended to use among developers.
+
+## Demo
+To test the app from the source code you need to have [node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/get-npm) installed.
+
+After installing both dependencies in the project root execute to install libraries:
+
+```
+npm install
+```
+
+Then to start the project:
+```
+npm start
+```
+
+To visualize the project you need to download the [Expo App](https://play.google.com/store/apps/details?id=host.exp.exponent) from the Android's PlayStore
+and scan the QR-code that appears in the Development window opened by Expo in your browser. Unfortunately in iOS you are not allowed to see a project that does not belong to you from the [published repository](https://expo.io/@bheftye/weather).
+On the other hand you can do this in Android, all you need to do is to scan this QR-code from the Expo App:
+
+![Imgur](https://i.imgur.com/oiseHGs.png)
+
+In case you can't execute the project nor see it in the Expo App, I uploaded a [video](https://www.youtube.com/watch?v=F-22QYSrMms) showing the demo executing in an iPhone 8 device.
