@@ -57,7 +57,7 @@ npm start
 
 To visualize the project you need to download the [Expo App](https://play.google.com/store/apps/details?id=host.exp.exponent) from the Android's PlayStore
 and scan the QR-code that appears in the Development window opened by Expo in your browser. Unfortunately in iOS you are not allowed to see a project that does not belong to you from the [published repository](https://expo.io/@bheftye/weather).
-On the other hand you can do this in Android, all you need to do is to scan this QR-code from the Expo App:
+On the other hand you can do this in Android, all you need to do is to scan this QR-code while on the Expo App:
 
 ![Imgur](https://i.imgur.com/oiseHGs.png)
 
