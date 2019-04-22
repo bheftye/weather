@@ -36,3 +36,7 @@ React-Native the best option to quickly develop cross-platform apps using light 
 React-Native has great documentation and it is widely used.
 It is built from React which a great technology for web development.
 This technology is developed by Facebook and used by big companies like Uber, Tesla, Instagram and Skype.
+
+### [Redux](https://redux.js.org)
+Redux is a great tool to handle global state in a React-Native application. It has great documentation and is well supported
+and recommended to use among developers.
