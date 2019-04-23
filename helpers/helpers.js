@@ -1,4 +1,8 @@
-
+/**
+ * Function that returns a recommendation based on the forecast.
+ * @param forecast Array[Object] Contains the forecast of 5 days from a particular city.
+ * @returns {string}
+ */
 export const recommendationAccordingToForecast = (forecast) => {
   let message = ""
 

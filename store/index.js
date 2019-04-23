@@ -2,6 +2,11 @@ import {createStore, applyMiddleware, compose} from 'redux'
 import reducers from '../reducers'
 import thunk from 'redux-thunk'
 
+/**
+ * Store configuration for Redux and global state.
+ * @param initialState
+ * @returns {Store<any, Action> & {dispatch: any}}
+ */
 export default function configureStore(initialState) {
   const middlewares = [
     thunk,
