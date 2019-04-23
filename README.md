@@ -58,7 +58,7 @@ project-root/constants/index.js
   api:{
     key: <your_api_key>
   }
-``
+```
 
 Then to start the project:
 ```
