@@ -52,7 +52,7 @@ npm install
 
 Also, you need to add your own API key from OpenWeatherMap in:
 
-````
+```
 project-root/constants/index.js
 
   api:{
