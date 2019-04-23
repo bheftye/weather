@@ -50,6 +50,16 @@ After installing both dependencies in the project root execute to install librar
 npm install
 ```
 
+Also, you need to add your own API key from OpenWeatherMap in:
+
+````
+project-root/constants/index.js
+
+  api:{
+    key: <your_api_key>
+  }
+``
+
 Then to start the project:
 ```
 npm start
